@@ -1,64 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your site description goes here.">
-    <meta property="og:title" content="Your Site Title">
-    <meta property="og:description" content="A description of your site for social media sharing.">
-    <meta property="og:image" content="url_to_image">
-    <meta property="og:url" content="your_site_url">
-    <title>Your Site Title</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <a href="#maincontent" class="skip-link">Skip to main content</a>
-    <header>
-        <h1>Your Site Title</h1>
-        <button class="menu-close">✖</button>
-        <!-- Navigation Menu -->
-    </header>
-    <main id="maincontent">
-        <section class="hero">
-            <h2>Hero Section</h2>
-            <p>Complete placeholder text for the hero section.</p>
-        </section>
-        <section class="services">
-            <h2>Our Services</h2>
-            <p>Complete placeholder text for services.</p>
-        </section>
-        <section class="process">
-            <h2>Our Process</h2>
-            <p>Complete placeholder text for process.</p>
-        </section>
-        <section class="benefits">
-            <h2>Benefits</h2>
-            <p>Complete placeholder text for benefits.</p>
-        </section>
-        <section class="contact">
-            <h2>Contact Us</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" required aria-label="Name input field">
-                <label for="email">Email:</label>
-                <input type="email" id="email" required aria-label="Email input field">
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Your Company Name | Ensure all links and buttons are accessible.</p>
-    </footer>
-    <script>
-        // Add lazy loading to images
-        document.querySelectorAll('img').forEach(img => {
-            img.loading = 'lazy';
-        });
-        
-        // Form validation and accessibility improvements
-        document.querySelector('form').addEventListener('submit', function(event) {
-            // Add validation logic here
-        });
+
+<html class="scroll-smooth" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ENTROPY | Дизайн и визуал для бизнеса</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#69daff",
+                    "on-primary": "#0e0e10",
+                    "secondary": "#ff6b98",
+                    "background": "#0e0e10",
+                    "surface": "#131316",
+                    "surface-variant": "#1a1a1e",
+                    "on-surface": "#fffbfe",
+                    "on-surface-variant": "#fffbfe/60",
+                    "outline": "#fffbfe/10",
+                    "outline-variant": "#fffbfe/20"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk", "sans-serif"],
+                    "body": ["Space Grotesk", "sans-serif"],
+                    "label": ["Space Grotesk", "sans-serif"]
+            },
+            "animation": {
+              'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          },
+        },
+      }
     </script>
-</body>
-</html>
+<style>
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAB32zAJAjM3ObMxY8fgmk9QSlQq5foirv0y9R_ozUc5nsyC0G6LJwb65E44uz4wZ3PQ5IMq6a4_jbBskYkjsey94GkDlummarjlXFYcKnWxn8cUzCRNbKZqHrAlwj2Gfmx_WgjZzwCyJdZrf7TcExXlUdIN1rbCnA0zLOOy77gD89mbiNatnATG7tkS5Mozz-Pg6dyKuz8dSWxZ75y6I8U1LK1PvRDUY7mzjOiU7Q5Kc_O8NcHd-QeSHwaMEEcZaZQskLXLOmvuIfh)
+}
+.glow-blob {
+    filter: blur(120px);
+    opacity: 0.15;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+}
+.barcode {
+    font-family: 'Libre Barcode 39', cursive;
+    letter-spacing: -1px;
+    opacity: 0.3;
+}
+/* Orbital lines simulation */
+.orbital-ring {
+    border: 1px solid rgba(255, 251, 254, 0.05);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+}
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; background-size: 100% 100%; }
+  25% { background-position: 50% 50%; background-size: 200% 200%; }
+  50% { background-position: 100% 50%; background-size: 300% 300%; }
+  75% { background-position: 50% 50%; background-size: 200% 200%; }
+  100% { background-position: 0% 50%; background-size: 100% 100%; }
+}
+.animate-gradient {
+  background: linear-gradient(120deg, #09111b, #0d192b, #11142c, #15132b, #1b152d);
+  background-size: 200% 200%;
+  animation: gradient-move 2s ease infinite;
+}
+</style>
+</head>
+<body class="bg-[#0e0e10] text-[#fffbfe] font-body selection:bg-[#69daff] selection:text-[#0e0e10]">
+<div class="grain"></div>
+<!-- Navigation (TopNavBar) -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e10]/80 backdrop-blur-xl border-b border-[#fffbfe]/10 shadow-[0px_20px_50px_rgba(105,218,255,0.08)]">
+<div class="flex justify-between items-center px-8 py-6 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#fffbfe] font-headline uppercase">ENTROPY // 01</div>
+<div class="hidden md:flex gap-12 items-center font-['Space_Grotesk'] tracking-tighter uppercase font-bold text-xs">
+<a class="text-[#fffbfe] hover:text-[#69daff] transition-colors" href="#portfolio">PORTFOLIO</a>
+<a class="text-[#69daff] border-b-2 border-[#69daff] pb-1" href="#services">SERVICES</a>
+<a class="text-[#fffbfe] hover:text-[#69daff] transition-colors" href="#about">ABOUT</a>
+<a class="text-[#fffbfe] hover:text-[#69daff] transition-colors" href="#contact">CONTACT</a>
+</div>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="md:hidden text-[#fffbfe] hover:text-[#69daff] transition-colors">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<a class="bg-[#69daff] text-[#0e0e10] px-8 py-3 font-['Space_Grotesk'] tracking-tighter uppercase text-xs font-bold hover:bg-white transition-all duration-300 active:scale-95" href="#contact">CONTACT</a>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-screen bg-[#0e0e10]/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8">
+<a class="text-[#fffbfe] hover:text-[#69daff] transition-colors text-xl font-bold uppercase tracking-tighter" href="#portfolio">PORTFOLIO</a>
+<a class="text-[#69daff] border-b-2 border-[#69daff] pb-1 text-xl font-bold uppercase tracking-tighter" href="#services">SERVICES</a>
+<a class="text-[#fffbfe] hover:text-[#69daff] transition-colors text-xl font-bold uppercase tracking-tighter" href="#about">ABOUT</a>
+<a class="text-[#fffbfe] hover:text-[#69daff] transition-colors text-xl font-bold uppercase tracking-tighter" href="#contact">CONTACT</a>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="animate-gradient relative min-h-screen flex flex-col justify-center px-8 md:px-20 overflow-hidden">
+<!-- Celestial Accents -->
+<div class="glow-blob w-[600px] h-[600px] bg-[#69daff] -top-40 -left-40 animate-pulse-slow"></div>
+<div class="glow-blob w-[500px] h-[500px] bg-[#ff6b98] bottom-0 right-0"></div>
+<div class="orbital-ring w-[120%] aspect-square -top-1/4 -right-1/4"></div>
+<div class="orbital-ring w-[80%] aspect-square top-0 left-0"></div>
+<div class="max-w-6xl z-10 relative">
+<div class="flex items-center gap-4 mb-8">
+<span class="text-xs font-bold uppercase tracking-[0.5em] text-[#69daff]">PREMIUM DESIGN SOLUTIONS</span>
+<div class="h-[1px] w-20 bg-[#69daff]/30"></div>
+<span class="text-[10px] opacity-40 font-mono">EST 02.04.2026</span>
+</div>
+<h1 class="text-4xl sm:text-6xl md:text-[8rem] font-headline font-black leading-[0.9] tracking-tighter mb-12 text-[#fffbfe] uppercase">
+            Дизайн и <br/>визуал, который <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#69daff] to-[#ff6b98]">работает</span>
+</h1>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-12">
+<p class="text-xl md:text-2xl text-[#fffbfe]/60 max-w-xl font-light leading-relaxed">
+                Сайты, коммерческие материалы и визуальный контент, повышающие лояльность клиентов и конверсию. Я создаю дизайн, который не просто красив, а действительно эффективен для вашего бизнеса.
+            </p>
+<div class="flex flex-wrap gap-6 shrink-0">
+<a class="bg-[#69daff] text-[#0e0e10] px-10 py-5 font-bold tracking-tighter uppercase text-sm hover:bg-white hover:scale-105 transition-all duration-400" href="#contact">Обсудить проект</a>
+<a class="group border border-[#fffbfe]/20 text-[#fffbfe] px-10 py-5 font-bold tracking-tighter uppercase text-sm hover:border-[#69daff] hover:text-[#69daff] transition-all duration-400 flex items-center gap-4" href="#services">
+                    Смотреть услуги
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Decorative Barcode -->
+<div class="absolute bottom-12 right-12 hidden lg:block opacity-30 select-none">
+<div class="text-[10px] tracking-[0.4em] mb-2 font-mono uppercase">TERMINAL_VELOCITY // CORE_SYSTEM</div>
+<img alt="Barcode" class="w-16 h-16 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2O_Iy2Wa9SdX3NHAqS-hcjEYSDdpNDUbGyGTQcqwiC4qg_yLMSKoiYPKG95kcsg6gXJ9NoUqYF5InUGMmJXcGS3Yl3kvdpd8EmtV15CpBCSKPGuulXpnx2_--zip2FwMhUba9Z6lXChaE3NdZbElP51bWa88NMwzkrt6tenkYSt8KBqfUgcXUqDTTylL8SN0FtI230-KCrvZxoxunYdCukOvRGSOtRxAj1b_Gv_G159T7CM3wVE2HcuHCxB7Tb71T_N9FemeDsevT"/>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-40 px-8 md:px-20 bg-[#0e0e10] relative overflow-hidden" id="services">
+<div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#fffbfe]/10 to-transparent"></div>
+<div class="mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8 relative z-10">
+<div class="max-w-3xl">
+<h2 class="text-5xl md:text-8xl font-headline font-black mb-8 uppercase tracking-tighter">ЭКСПЕРТИЗА // УСЛУГИ</h2>
+<p class="text-[#fffbfe]/50 text-xl font-light max-w-xl">Я создаю визуальные системы, которые масштабируют бизнес и подчеркивают статус продукта на рынке.</p>
+</div>
+<div class="text-xs font-bold tracking-[0.3em] uppercase text-[#69daff] border-l-2 border-[#69daff] pl-6 py-2">
+            PRICING GUIDE<br/>VERSION 2026.1
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
+<!-- Service 1 -->
+<div class="group p-10 bg-[#131316] border border-[#fffbfe]/5 hover:border-[#69daff]/40 transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-6xl">language</span>
+</div>
+<div class="mb-20">
+<div class="text-[10px] font-mono mb-4 text-[#69daff]">01 // WEB_EXP</div>
+<h3 class="text-3xl font-headline font-bold uppercase tracking-tight">Веб-дизайн</h3>
+</div>
+<ul class="space-y-4 mb-12 text-[#fffbfe]/60 group-hover:text-[#fffbfe] transition-colors font-light text-sm">
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Лендинг</span> <span>от 50к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Медиа для соцсетей</span> <span>от 1к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>AI-Контент</span> <span>от 2к</span></li>
+</ul>
+<div class="flex items-center justify-between">
+<a class="text-xs font-bold tracking-widest uppercase text-[#69daff] flex items-center gap-2 group/btn" href="#">
+                    ЗАКАЗАТЬ <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+</a>
+<div class="h-6 w-12 bg-[#fffbfe]/5 flex items-center justify-center text-[8px] font-mono">B01-44</div>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group p-10 bg-[#131316] border border-[#fffbfe]/5 hover:border-[#ff6b98]/40 transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-6xl">description</span>
+</div>
+<div class="mb-20">
+<div class="text-[10px] font-mono mb-4 text-[#ff6b98]">02 // DOC_SYS</div>
+<h3 class="text-3xl font-headline font-bold uppercase tracking-tight">Бизнес-документы</h3>
+</div>
+<ul class="space-y-4 mb-12 text-[#fffbfe]/60 group-hover:text-[#fffbfe] transition-colors font-light text-sm">
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Ком.предложения</span> <span>от 10к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Презентации</span> <span>от 10к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Бренд-буки</span> <span>от 45к</span></li>
+</ul>
+<div class="flex items-center justify-between">
+<a class="text-xs font-bold tracking-widest uppercase text-[#ff6b98] flex items-center gap-2 group/btn" href="#">
+                    ЗАКАЗАТЬ <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+</a>
+<div class="h-6 w-12 bg-[#fffbfe]/5 flex items-center justify-center text-[8px] font-mono">B02-88</div>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="group p-10 bg-[#131316] border border-[#fffbfe]/5 hover:border-[#69daff]/40 transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-6xl">campaign</span>
+</div>
+<div class="mb-20">
+<div class="text-[10px] font-mono mb-4 text-[#69daff]">03 // MKTG_VIS</div>
+<h3 class="text-3xl font-headline font-bold uppercase tracking-tight">Визуальный маркетинг</h3>
+</div>
+<ul class="space-y-4 mb-12 text-[#fffbfe]/60 group-hover:text-[#fffbfe] transition-colors font-light text-sm">
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Прайсы</span> <span>от 8к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Каталоги</span> <span>от 20к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Визитки</span> <span>от 6к</span></li>
+</ul>
+<div class="flex items-center justify-between">
+<a class="text-xs font-bold tracking-widest uppercase text-[#69daff] flex items-center gap-2 group/btn" href="#">
+                    ЗАКАЗАТЬ <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+</a>
+<div class="h-6 w-12 bg-[#fffbfe]/5 flex items-center justify-center text-[8px] font-mono">B03-12</div>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="group p-10 bg-[#131316] border border-[#fffbfe]/5 hover:border-[#ff6b98]/40 transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-6xl">photo_camera</span>
+</div>
+<div class="mb-20">
+<div class="text-[10px] font-mono mb-4 text-[#ff6b98]">04 // CONTENT_PRD</div>
+<h3 class="text-3xl font-headline font-bold uppercase tracking-tight">Продакшн</h3>
+</div>
+<ul class="space-y-4 mb-12 text-[#fffbfe]/60 group-hover:text-[#fffbfe] transition-colors font-light text-sm">
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Ретушь</span> <span>от 2к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Видео</span> <span>от 15к</span></li>
+<li class="flex justify-between border-b border-[#fffbfe]/5 pb-2"><span>Инфографика</span> <span>от 10к</span></li>
+</ul>
+<div class="flex items-center justify-between">
+<a class="text-xs font-bold tracking-widest uppercase text-[#ff6b98] flex items-center gap-2 group/btn" href="#">
+                    ЗАКАЗАТЬ <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+</a>
+<div class="h-6 w-12 bg-[#fffbfe]/5 flex items-center justify-center text-[8px] font-mono">B04-00</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How I Work Section -->
+<section class="py-40 px-8 md:px-20 bg-[#0e0e10] relative">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-5xl md:text-7xl font-headline font-black mb-32 text-center uppercase tracking-tighter">ПРОЦЕСС_СОЗДАНИЯ</h2>
+<div class="relative grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Orbital Decorative Path -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#69daff]/30 to-transparent -z-10"></div>
+<!-- Step 1 -->
+<div class="group flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#131316] border border-[#fffbfe]/10 group-hover:border-[#69daff] group-hover:shadow-[0_0_30px_rgba(105,218,255,0.2)] flex items-center justify-center font-headline text-2xl font-black mb-8 transition-all duration-500 rounded-full">01</div>
+<h4 class="text-xl font-bold mb-4 font-headline uppercase tracking-tighter text-[#69daff]">Аналитика</h4>
+<p class="text-[#fffbfe]/40 text-sm font-light leading-relaxed max-w-[200px]">Погружаюсь в бизнес-процессы и формулирую ключевую задачу проекта.</p>
+</div>
+<!-- Step 2 -->
+<div class="group flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#131316] border border-[#fffbfe]/10 group-hover:border-[#ff6b98] group-hover:shadow-[0_0_30px_rgba(255,107,152,0.2)] flex items-center justify-center font-headline text-2xl font-black mb-8 transition-all duration-500 rounded-full">02</div>
+<h4 class="text-xl font-bold mb-4 font-headline uppercase tracking-tighter text-[#ff6b98]">Концепт</h4>
+<p class="text-[#fffbfe]/40 text-sm font-light leading-relaxed max-w-[200px]">Создаю структуру и визуальную гипотезу, которая решает задачу.</p>
+</div>
+<!-- Step 3 -->
+<div class="group flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#131316] border border-[#fffbfe]/10 group-hover:border-[#69daff] group-hover:shadow-[0_0_30px_rgba(105,218,255,0.2)] flex items-center justify-center font-headline text-2xl font-black mb-8 transition-all duration-500 rounded-full">03</div>
+<h4 class="text-xl font-bold mb-4 font-headline uppercase tracking-tighter text-[#69daff]">Продакшн</h4>
+<p class="text-[#fffbfe]/40 text-sm font-light leading-relaxed max-w-[200px]">Детальная проработка дизайна и внесение правок до идеала.</p>
+</div>
+<!-- Step 4 -->
+<div class="group flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#69daff] text-[#0e0e10] border border-transparent shadow-[0_0_40px_rgba(105,218,255,0.3)] flex items-center justify-center font-headline text-2xl font-black mb-8 transition-all duration-500 rounded-full">04</div>
+<h4 class="text-xl font-bold mb-4 font-headline uppercase tracking-tighter text-[#fffbfe]">Результат</h4>
+<p class="text-[#fffbfe]/40 text-sm font-light leading-relaxed max-w-[200px]">Передача всех исходников и поддержка при запуске проекта.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-40 px-8 md:px-20 bg-[#131316] relative overflow-hidden">
+<!-- Glow behind image -->
+<div class="glow-blob w-[400px] h-[400px] bg-[#69daff]/30 top-1/2 right-0 translate-x-1/2 -translate-y-1/2"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
+<div>
+<div class="text-xs font-mono text-[#69daff] mb-6 tracking-widest">// CORE_VALUES</div>
+<h2 class="text-4xl sm:text-6xl md:text-8xl font-headline font-black mb-16 uppercase tracking-tighter leading-none">БЕЗ <br/>ЛИШНЕГО.</h2>
+<div class="space-y-12">
+<div class="group flex gap-8 items-start border-l border-[#fffbfe]/10 hover:border-[#69daff] pl-8 transition-colors duration-500">
+<div class="text-[#69daff] pt-1">
+<span class="material-symbols-outlined">dataset</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-3 uppercase tracking-tighter">НИКАКИХ ШАБЛОНОВ</h4>
+<p class="text-[#fffbfe]/50 font-light leading-relaxed">Каждый проект создается с нуля под конкретные цели вашего бренда.</p>
+</div>
+</div>
+<div class="group flex gap-8 items-start border-l border-[#fffbfe]/10 hover:border-[#ff6b98] pl-8 transition-colors duration-500">
+<div class="text-[#ff6b98] pt-1">
+<span class="material-symbols-outlined">target</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-3 uppercase tracking-tighter">БИЗНЕС-ФОКУС</h4>
+<p class="text-[#fffbfe]/50 font-light leading-relaxed">Дизайн — это инструмент продаж, а не просто красивая картинка.</p>
+</div>
+</div>
+<div class="group flex gap-8 items-start border-l border-[#fffbfe]/10 hover:border-[#69daff] pl-8 transition-colors duration-500">
+<div class="text-[#69daff] pt-1">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-3 uppercase tracking-tighter">СОБЛЮДЕНИЕ СРОКОВ</h4>
+<p class="text-[#fffbfe]/50 font-light leading-relaxed">Прозрачная отчетность и четкий тайм-менеджмент на каждом этапе.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale brightness-50 group-hover:brightness-90 group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" data-alt="Modern minimalist workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6rLS8D0_ePB1_e8wIim4-l1r1gXX7JKyzHFiwgrGDOsq1LK8ApIyYmqaHm0mim_GM9FMuyCrs9bnrB-8hdum0D0o7jrIu_YHr7NNg9qz0eB8zgSwrLBGyqWUXht1a3m5zwWEjNvbUXvvwxr0cmvcpeUEU1Rwi5Llgmt2hg5kFvDY_r0hGIQi7cFHisEHpCSpwI7zBCiW5ihgW05YFZEqv-MkluGy8bvfT0quqBiMkuzb5OQjbO48doXU-IlMdYhSyc9kzVtqGl9YI"/>
+<!-- Geometric overlay -->
+<div class="absolute inset-0 border-[20px] border-[#0e0e10]/20 pointer-events-none"></div>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-[#69daff] text-[#0e0e10] p-10 shadow-[20px_20px_60px_rgba(0,0,0,0.5)]">
+<p class="text-7xl font-headline font-black leading-none">05+</p>
+<p class="text-xs uppercase tracking-[0.3em] font-bold mt-4">ЛЕТ ОПЫТА // SENIOR</p>
+<div class="mt-4 border-t border-[#0e0e10]/20 pt-4 flex gap-1">
+<div class="h-1 w-8 bg-[#0e0e10]/80"></div>
+<div class="h-1 w-2 bg-[#0e0e10]/40"></div>
+<div class="h-1 w-1 bg-[#0e0e10]/20"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-40 px-8 md:px-20 bg-[#0e0e10] relative" id="contact">
+<!-- Orbital path -->
+<div class="orbital-ring w-[100%] aspect-square bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 opacity-20"></div>
+<div class="max-w-4xl mx-auto relative z-10">
+<div class="text-center mb-32">
+<div class="text-[#ff6b98] font-mono text-[10px] mb-4 tracking-[0.5em] uppercase">INITIATING_CONTACT_PROTOCOL</div>
+<h2 class="text-4xl sm:text-6xl md:text-9xl font-headline font-black mb-8 uppercase tracking-tighter">НАЧНЕМ_ <br/>РАБОТУ?</h2>
+<p class="text-[#fffbfe]/40 font-light max-w-lg mx-auto text-lg leading-relaxed">Заполните форму, и я свяжусь с вами в течение рабочего дня для обсуждения деталей.</p>
+</div>
+<form class="space-y-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+<div class="relative group">
+<input class="peer w-full bg-transparent border-0 border-b border-[#fffbfe]/20 py-4 focus:ring-0 focus:border-[#69daff] transition-all duration-500 text-xl placeholder-transparent" id="name" placeholder="Ваше имя" type="text"/>
+<label class="absolute left-0 top-4 text-[#fffbfe]/40 pointer-events-none transition-all duration-300 peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#69daff] peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs uppercase tracking-widest font-bold" for="name">Ваше имя</label>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#69daff] group-hover:w-full transition-all duration-700"></div>
+</div>
+<div class="relative group">
+<input class="peer w-full bg-transparent border-0 border-b border-[#fffbfe]/20 py-4 focus:ring-0 focus:border-[#69daff] transition-all duration-500 text-xl placeholder-transparent" id="contact_info" placeholder="Telegram или Email" type="text"/>
+<label class="absolute left-0 top-4 text-[#fffbfe]/40 pointer-events-none transition-all duration-300 peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#69daff] peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs uppercase tracking-widest font-bold" for="contact_info">Telegram или Email</label>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#69daff] group-hover:w-full transition-all duration-700"></div>
+</div>
+</div>
+<div class="relative group">
+<textarea class="peer w-full bg-transparent border-0 border-b border-[#fffbfe]/20 py-4 focus:ring-0 focus:border-[#69daff] transition-all duration-500 resize-none text-xl placeholder-transparent" id="message" placeholder="О проекте" rows="4"></textarea>
+<label class="absolute left-0 top-4 text-[#fffbfe]/40 pointer-events-none transition-all duration-300 peer-focus:-top-6 peer-focus:text-xs peer-focus:text-[#69daff] peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs uppercase tracking-widest font-bold" for="message">О проекте</label>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#69daff] group-hover:w-full transition-all duration-700"></div>
+</div>
+<div class="flex flex-col items-center pt-10">
+<button class="relative group bg-[#69daff] text-[#0e0e10] px-24 py-8 font-bold tracking-widest uppercase text-sm hover:bg-white hover:scale-105 transition-all duration-500 shadow-[0_20px_60px_rgba(105,218,255,0.2)] overflow-hidden" type="submit">
+<span class="relative z-10">ОТПРАВИТЬ ЗАПРОС</span>
+<div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+<div class="mt-8 text-[10px] font-mono text-[#fffbfe]/20 tracking-widest">SEND_DATA_PACKET // ENCRYPTED</div>
+</div>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0e0e10] w-full border-t border-[#fffbfe]/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-[1920px] mx-auto">
+<div class="flex flex-col gap-2">
+<div class="font-headline font-black text-[#fffbfe] text-3xl tracking-tighter uppercase">ENTROPY_STUDIO.</div>
+<div class="text-[10px] font-mono text-[#fffbfe]/40 tracking-widest uppercase">PRECISION_VISUAL_SYSTEMS // CORE_ST_01</div>
+</div>
+<div class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#fffbfe]/40 text-center max-w-xs">
+    ©2026 TERMINAL_VELOCITY. <br/>ТИХАЯ РОСКОШЬ В ЦИФРОВОЙ СРЕДЕ.
+</div>
+<div class="flex gap-12 font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase">
+<a class="text-[#fffbfe]/40 hover:text-[#69daff] transition-colors" href="#">BEHANCE</a>
+<a class="text-[#fffbfe]/40 hover:text-[#69daff] transition-colors" href="#">DRIBBBLE</a>
+<a class="text-[#fffbfe]/40 hover:text-[#69daff] transition-colors" href="#">READ_CV</a>
+</div>
+</div>
+</footer>
+<script>
+// Minor interaction for moving glow blobs
+document.addEventListener('mousemove', (e) => {
+    const blobs = document.querySelectorAll('.glow-blob');
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    
+    blobs.forEach((blob, index) => {
+        const factor = (index + 1) * 20;
+        blob.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+    });
+});
+
+// Mobile menu toggle
+document.getElementById('mobile-menu-button').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+    });
+});
+</script>
+</body></html>
